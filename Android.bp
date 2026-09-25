@@ -888,3 +888,21 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
 }
+
+cc_library {
+    name: "libinput_shim",
+    srcs: [
+        "libinput/android_view_KeyEvent.cpp",
+        "libinput/Input.cpp",
+    ],
+    include_dirs: [
+        "frameworks/native/include",
+        "frameworks/native/libs/ui/include",
+    ],
+    shared_libs: [
+        "libandroid_runtime",
+        "libinput",
+    ],
+    compile_multilib: "64",
+    system_ext_specific: true,
+}
